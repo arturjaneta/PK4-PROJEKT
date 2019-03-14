@@ -1,0 +1,15 @@
+﻿  pch.cpp
+c:\users\ar2r\source\repos\pk4-projekt\projekt pk4\projekt pk4\pch.h(14): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+  Assets.cpp
+  Player.cpp
+  projekt pk4.cpp
+  Generating Code...
+  projekt pk4.vcxproj -> C:\Users\Ar2r\Source\Repos\PK4-PROJEKT\projekt pk4\Debug\projekt pk4.exe
