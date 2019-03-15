@@ -1,9 +1,6 @@
 #include "pch.h"
 #include "Assets.h"
 
-
-#include "Assets.h"
-
 std::map<std::string, SpriteInfo> Assets::sprites;
 
 void Assets::loadAssets()

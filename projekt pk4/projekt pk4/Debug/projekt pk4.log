@@ -1,15 +1,15 @@
-﻿  pch.cpp
-c:\users\ar2r\source\repos\pk4-projekt\projekt pk4\projekt pk4\pch.h(14): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+﻿  World.cpp
+c:\program files (x86)\microsoft visual studio\2017\enterprise2\vc\tools\msvc\14.16.27023\include\memory(1801): error C2664: 'Player::Player(const Player &)': cannot convert argument 1 from 'SpriteInfo' to 'const Player &'
+  c:\program files (x86)\microsoft visual studio\2017\enterprise2\vc\tools\msvc\14.16.27023\include\memory(1799): note: Reason: cannot convert from 'SpriteInfo' to 'const Player'
+  c:\program files (x86)\microsoft visual studio\2017\enterprise2\vc\tools\msvc\14.16.27023\include\memory(1799): note: No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+  c:\program files (x86)\microsoft visual studio\2017\enterprise2\vc\tools\msvc\14.16.27023\include\memory(1865): note: see reference to function template instantiation 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<SpriteInfo&>(SpriteInfo &)' being compiled
           with
           [
-              T=unsigned int
+              _Ty=Player
           ]
-          and
+  c:\program files (x86)\microsoft visual studio\2017\enterprise2\vc\tools\msvc\14.16.27023\include\memory(1866): note: see reference to function template instantiation 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<SpriteInfo&>(SpriteInfo &)' being compiled
+          with
           [
-              T=float
+              _Ty=Player
           ]
-  Assets.cpp
-  Player.cpp
-  projekt pk4.cpp
-  Generating Code...
-  projekt pk4.vcxproj -> C:\Users\Ar2r\Source\Repos\PK4-PROJEKT\projekt pk4\Debug\projekt pk4.exe
+  c:\users\ar2r\source\repos\pk4-projekt\projekt pk4\projekt pk4\world.cpp(10): note: see reference to function template instantiation 'std::shared_ptr<Player> std::make_shared<Player,SpriteInfo&>(SpriteInfo &)' being compiled

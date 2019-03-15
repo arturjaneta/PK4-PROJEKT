@@ -3,12 +3,14 @@
 #define PLAYER_H
 
 #include <SFML/Graphics.hpp>
+
+#include "SpriteObject.h"
 #include "SpriteInfo.h"
 
-class Player
+class Player : public SpriteObject
 {
 public:
-	Player(SpriteInfo& info);
+	Player(SpriteInfo& info, sf::Vector2f pos);
 	~Player();
 
 	void update();
@@ -16,8 +18,6 @@ public:
 	void handleEvents(sf::Event& event);
 
 private:
-	SpriteInfo& mSpriteInfo;
-	sf::Sprite mSprite;
 	sf::Vector2f mPosition;
 };
 

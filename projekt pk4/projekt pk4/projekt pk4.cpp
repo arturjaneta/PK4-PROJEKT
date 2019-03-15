@@ -7,6 +7,8 @@
 #include <SFML/Window.hpp>
 #include "Assets.h"
 #include "Player.h"
+#include "World.h"
+
 
 int main()
 {
@@ -14,7 +16,8 @@ int main()
 	Assets::loadAssets();
 	sf::Sprite testObj(Assets::sprites["ammocrate"].mTexture);
 	testObj.setPosition(sf::Vector2f(300.f, 200.f));
-	Player player(Assets::sprites["player"]);
+	Player player(Assets::sprites["player"], sf::Vector2f(300.f, 200.f));
+	World world("Content/Worlds/world.txt");
 	while (window.isOpen())
 	{
 		sf::Event event;
@@ -23,13 +26,13 @@ int main()
 			if (event.type == sf::Event::Closed)
 				window.close();
 
-				player.handleEvents(event);
+			world.handleEvents(event);
 		}
 
-		player.update();
+		world.update();
 
 		window.clear();
-		player.draw(window);
+		world.draw(window);
 		window.display();
 	}
 

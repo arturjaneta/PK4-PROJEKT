@@ -155,9 +155,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Assets.h" />
+    <ClInclude Include="IRenderable.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="SpriteInfo.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="SpriteObject.h" />
+    <ClInclude Include="World.h" />
+    <ClInclude Include="WorldObject.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Assets.cpp" />
@@ -169,6 +173,9 @@
     </ClCompile>
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="projekt pk4.cpp" />
+    <ClCompile Include="SpriteObject.cpp" />
+    <ClCompile Include="World.cpp" />
+    <ClCompile Include="WorldObject.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

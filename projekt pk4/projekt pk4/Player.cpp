@@ -1,10 +1,10 @@
 #include "pch.h"
 #include "Player.h"
 
-Player::Player(SpriteInfo& info) :
-	mSpriteInfo(info)
+Player::Player(SpriteInfo& info, sf::Vector2f pos) :
+	SpriteObject(info, pos)
 {
-	mSprite = sf::Sprite(mSpriteInfo.mTexture);
+	//ctor
 }
 
 Player::~Player()
@@ -14,12 +14,12 @@ Player::~Player()
 
 void Player::update()
 {
-	mSprite.setPosition(mPosition);
+	SpriteObject::update();
 }
 
 void Player::draw(sf::RenderTarget& target)
 {
-	target.draw(mSprite);
+	SpriteObject::draw(target);
 }
 
 void Player::handleEvents(sf::Event& event)
