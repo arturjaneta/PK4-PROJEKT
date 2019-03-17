@@ -7,7 +7,7 @@
 
 World::World(std::string path)
 {
-	mPlayer = std::make_shared<Player>(Assets::sprites["player"]);		//cos tu nie tak
+	mPlayer = std::make_shared<Player>(Assets::sprites["player"],sf::Vector2f(0.f, 0.f));		//cos tu nie tak
 
 	loadWorld(path);
 }
@@ -39,13 +39,13 @@ void World::handleEvents(sf::Event& event)
 }
 void World::loadWorld(std::string path)
 {
-	// basic file loading stuff
+	
 	std::string line = "";
 	std::ifstream file(path);
 
 	if (file.is_open())
 	{
-		while (std::getline(file, line))
+		while (!file.eof())
 		{
 			std::string id = "";
 			float x = 0;

@@ -43,7 +43,7 @@ void SpriteObject::draw(sf::RenderTarget& target)
 
 	// Stop here
 	//*****************************************************************************************
-	target.draw(mSprite); // Rendahhh!!!!
+	target.draw(mSprite); 
 }
 
 void SpriteObject::setFrameLoop(int start, int stop, bool loop)

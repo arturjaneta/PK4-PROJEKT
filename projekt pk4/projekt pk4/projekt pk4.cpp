@@ -14,10 +14,8 @@ int main()
 {
 	sf::RenderWindow window(sf::VideoMode(1600, 900), "Jakos szpila 2D");
 	Assets::loadAssets();
-	sf::Sprite testObj(Assets::sprites["ammocrate"].mTexture);
-	testObj.setPosition(sf::Vector2f(300.f, 200.f));
-	Player player(Assets::sprites["player"], sf::Vector2f(300.f, 200.f));
 	World world("Content/Worlds/world.txt");
+	world.loadWorld("Content/Worlds/world.txt");
 	while (window.isOpen())
 	{
 		sf::Event event;
@@ -28,9 +26,7 @@ int main()
 
 			world.handleEvents(event);
 		}
-
 		world.update();
-
 		window.clear();
 		world.draw(window);
 		window.display();
