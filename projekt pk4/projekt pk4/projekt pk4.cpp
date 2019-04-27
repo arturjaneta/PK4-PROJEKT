@@ -14,8 +14,9 @@ int main()
 {
 	sf::RenderWindow window(sf::VideoMode(1600, 900), "Jakos szpila 2D");
 	Assets::loadAssets();
+
 	World world("Content/Worlds/world.txt");
-	world.loadWorld("Content/Worlds/world.txt");
+
 	while (window.isOpen())
 	{
 		sf::Event event;
@@ -26,7 +27,9 @@ int main()
 
 			world.handleEvents(event);
 		}
+
 		world.update();
+
 		window.clear();
 		world.draw(window);
 		window.display();

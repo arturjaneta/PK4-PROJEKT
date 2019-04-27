@@ -1,25 +1,14 @@
-#ifndef SPRITEINFO_H
-#define SPRITEINFO_H
+// Tips for Getting Started: 
+//   1. Use the Solution Explorer window to add/manage files
+//   2. Use the Team Explorer window to connect to source control
+//   3. Use the Output window to see build output and other messages
+//   4. Use the Error List window to view errors
+//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
+//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
 
-#include <SFML/Graphics.hpp>
+#ifndef PCH_H
+#define PCH_H
 
-struct SpriteInfo
-{
-	SpriteInfo() {}
-	SpriteInfo(std::string path, int frames = 1, int framesPerRow = 1) :
-		mFrames(frames),
-		mFramesPerRow(framesPerRow)
-	{
-		mTexture.loadFromFile(path);
-		mFrameDim = sf::Vector2f(mTexture.getSize().x / mFramesPerRow, mTexture.getSize().y / (mFrames / mFramesPerRow));
-		mHitBox = sf::FloatRect(0.f, 0.f, mFrameDim.x, mFrameDim.y);
-	}
+// TODO: add headers that you want to pre-compile here
 
-	sf::Texture mTexture;
-	int mFrames;
-	int mFramesPerRow;
-	sf::Vector2f mFrameDim;
-	sf::FloatRect mHitBox;
-};
-
-#endif // SPRITEINFO_H
+#endif //PCH_H

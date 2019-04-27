@@ -3,22 +3,18 @@
 #define PLAYER_H
 
 #include <SFML/Graphics.hpp>
+#include "WorldObject.h"
 
-#include "SpriteObject.h"
-#include "SpriteInfo.h"
-
-class Player : public SpriteObject
+class Player :public WorldObject
 {
 public:
 	Player(SpriteInfo& info, sf::Vector2f pos);
-	~Player();
 
 	void update();
 	void draw(sf::RenderTarget& target);
 	void handleEvents(sf::Event& event);
 
 private:
-	sf::Vector2f mPosition;
 };
 
 #endif // PLAYER_H

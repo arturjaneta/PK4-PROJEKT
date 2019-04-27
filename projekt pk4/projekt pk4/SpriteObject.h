@@ -2,8 +2,6 @@
 #ifndef SPRITEOBJECT_H
 #define SPRITEOBJECT_H
 
-#include <memory>
-
 #include <SFML/Graphics.hpp>
 
 #include "IRenderable.h"
@@ -13,15 +11,15 @@ class SpriteObject : public IRenderable
 {
 public:
 	SpriteObject(SpriteInfo& info, sf::Vector2f pos);
-	virtual ~SpriteObject();
+	virtual ~SpriteObject() {}
 
 	virtual void update();
 	virtual void draw(sf::RenderTarget& target);
 
-	// Mutator
+	// Mutators
 	virtual void setPosition(sf::Vector2f pos) { mRenderPosition = pos; }
 	void setFrameLoop(int start, int stop, bool loop = true);
-	// Accessor
+	// Accessors
 	SpriteInfo getSpriteInfo() { return mSpriteInfo; }
 	sf::Sprite& getSprite() { return mSprite; }
 	sf::Vector2f getRenderPosition() { return mRenderPosition; }
@@ -38,7 +36,6 @@ protected:
 	int mStartFrame;
 	int mEndFrame;
 	int mFrameDir;
-	bool mAlive;
 };
 
 #endif // SPRITEOBJECT_H

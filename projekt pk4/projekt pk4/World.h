@@ -6,21 +6,27 @@
 #include <memory>
 #include "Player.h"
 #include "WorldObject.h"
+#include "IColliderable.h"
 
 class World
 {
 public:
-	~World();
+	World(std::string path);
+	~World() {}
 
 	void update();
 	void draw(sf::RenderTarget& target);
 	void handleEvents(sf::Event& event);
 
-	void loadWorld(std::string path);
-	World(std::string path);
+	bool checkCollision(std::weak_ptr<ICollideable> a, std::weak_ptr<ICollideable> b);
+	void resolveCollision(std::weak_ptr<ICollideable> a, std::weak_ptr<ICollideable> b);
+
 private:
+	void loadWorld(std::string path);
+
 	std::shared_ptr<Player> mPlayer;
 	std::vector<std::shared_ptr<WorldObject>> mWorldObjects;
+	std::vector<std::weak_ptr<ICollideable>> mCollideables;
 };
 
 #endif // WORLD_H

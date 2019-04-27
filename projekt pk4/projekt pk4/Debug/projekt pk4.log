@@ -1,2 +1,22 @@
-﻿  projekt pk4.cpp
-  projekt pk4.vcxproj -> C:\Users\Ar2r\source\repos\PK4-PROJEKT\projekt pk4\Debug\projekt pk4.exe
+﻿  Player.cpp
+C:\Users\artur\source\repos\PK4-PROJEKT\projekt pk4\projekt pk4\SpriteInfo.h(15): warning C4244: "argument": konwersja z "T" do "T", możliwa utrata danych
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+  World.cpp
+C:\Users\artur\source\repos\PK4-PROJEKT\projekt pk4\projekt pk4\SpriteInfo.h(15): warning C4244: "argument": konwersja z "T" do "T", możliwa utrata danych
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+  Generowanie kodu...
+  projekt pk4.vcxproj -> C:\Users\artur\source\repos\PK4-PROJEKT\projekt pk4\Debug\projekt pk4.exe

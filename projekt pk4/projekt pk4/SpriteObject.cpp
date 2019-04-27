@@ -8,13 +8,8 @@ mCurrentFrame(0), mFrameDelay(100.f), mLoopAnim(true), mStartFrame(0), mEndFrame
 {
 	mSprite = sf::Sprite(info.mTexture);
 	mRenderPosition = pos;
-	mAlive = true;
 }
 
-SpriteObject::~SpriteObject()
-{
-	//dtor
-}
 
 void SpriteObject::update()
 {

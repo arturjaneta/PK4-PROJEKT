@@ -3,11 +3,12 @@
 #define WORLDOBJECT_H
 
 #include "SpriteObject.h"
-class WorldObject : public SpriteObject
+#include "IColliderable.h"
+class WorldObject : public SpriteObject , public ICollideable
 {
 public:
 	WorldObject(SpriteInfo& info, sf::Vector2f pos);
-	~WorldObject();
+	~WorldObject() {}
 
 	void update();
 	void draw(sf::RenderTarget& target);
