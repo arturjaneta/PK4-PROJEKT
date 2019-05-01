@@ -23,10 +23,12 @@ public:
 
 private:
 	void loadWorld(std::string path);
-
+	
 	std::shared_ptr<Player> mPlayer;
 	std::vector<std::shared_ptr<WorldObject>> mWorldObjects;
 	std::vector<std::weak_ptr<ICollideable>> mCollideables;
+
+	sf::Vector2f Gravity;
 };
 
 #endif // WORLD_H

@@ -1,49 +1,55 @@
 #include "pch.h"
 #include "Player.h"
+#define movSpeed 0.5f
 
 Player::Player(SpriteInfo& info, sf::Vector2f pos) :
 	WorldObject(info, pos)
 {
-
+	Static = false;
 }
 
 void Player::update()
 {
 	SpriteObject::update();
 
-	mOldPhysicsPosition = mPhysicsPosition;		//zapisanie poprzedniej pozycji
-	mPhysicsPosition += mVelocity;				//ustawienie nowej pozycji
+	OldPhysicsPosition = PhysicsPosition;		//zapisanie poprzedniej pozycji
+	PhysicsPosition += Velocity;				//ustawienie nowej pozycji
 }
 
 void Player::draw(sf::RenderTarget& target)
 {
 	SpriteObject::draw(target);
 
-	mRenderPosition = mPhysicsPosition;			//taka sama fizyczna pozycja i widoczna
+	RenderPosition = PhysicsPosition;			//taka sama fizyczna pozycja i widoczna
 }
 
 void Player::handleEvents(sf::Event& event)							//poruszanie sie
 {
 	if (event.type == sf::Event::KeyPressed)					
 	{
-		if (event.key.code == sf::Keyboard::W)
-			mVelocity.y = -1.f;										//predkosc przemieszczania
-		else if (event.key.code == sf::Keyboard::S)
-			mVelocity.y = 1.f;
+		if (event.key.code == sf::Keyboard::Space && onGround) {
+			Velocity.y = -movSpeed;
+			onGround = false;
+		}
+
 		if (event.key.code == sf::Keyboard::A)
-			mVelocity.x = -1.f;
+			Velocity.x = -movSpeed;
 		else if (event.key.code == sf::Keyboard::D)
-			mVelocity.x = 1.f;
+			Velocity.x = movSpeed;
 	}
 	else if (event.type == sf::Event::KeyReleased)
 	{
-		if (event.key.code == sf::Keyboard::W)
-			mVelocity.y = 0.f;
-		else if (event.key.code == sf::Keyboard::S)
-			mVelocity.y = 0.f;
 		if (event.key.code == sf::Keyboard::A)
-			mVelocity.x = 0.f;
+			Velocity.x = 0.f;
 		else if (event.key.code == sf::Keyboard::D)
-			mVelocity.x = 0.f;
+			Velocity.x = 0.f;
 	}
+}
+
+bool Player::ContactBegin(std::weak_ptr<ICollideable> object, bool fromLeft, bool fromTop)
+{
+	if (object.lock()->isStatic())
+		onGround = true;
+
+	return true;
 }

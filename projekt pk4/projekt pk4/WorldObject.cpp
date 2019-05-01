@@ -13,12 +13,12 @@ void WorldObject::update()
 {
 	SpriteObject::update();
 
-	mOldPhysicsPosition = mPhysicsPosition;				//zapsanie poprzedniej pozycji
-	mPhysicsPosition += mVelocity;						//ustawienie nowej pozycji
+	OldPhysicsPosition = PhysicsPosition;				//zapsanie poprzedniej pozycji
+	PhysicsPosition += Velocity;						//ustawienie nowej pozycji
 }
 
 void WorldObject::draw(sf::RenderTarget& target)
 {
 	SpriteObject::draw(target);
-	mRenderPosition = mPhysicsPosition;					//taka sama pozycja fizyczna i widoczna
+	RenderPosition = PhysicsPosition;					//taka sama pozycja fizyczna i widoczna
 }

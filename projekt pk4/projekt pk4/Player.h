@@ -14,7 +14,9 @@ public:
 	void draw(sf::RenderTarget& target);
 	void handleEvents(sf::Event& event);
 
+	bool ContactBegin(std::weak_ptr<ICollideable> object, bool fromLeft, bool fromTop);
 private:
+	bool onGround;
 };
 
 #endif // PLAYER_H

@@ -17,21 +17,21 @@ public:
 	virtual void draw(sf::RenderTarget& target);
 
 	// Mutators
-	virtual void setPosition(sf::Vector2f pos) { mRenderPosition = pos; }
+	virtual void setPosition(sf::Vector2f pos) { RenderPosition = pos; }
 	void setFrameLoop(int start, int stop, bool loop = true);
 	// Accessors
-	SpriteInfo getSpriteInfo() { return mSpriteInfo; }
-	sf::Sprite& getSprite() { return mSprite; }
-	sf::Vector2f getRenderPosition() { return mRenderPosition; }
+	SpriteInfo getSpriteInfo() { return _SpriteInfo; }
+	sf::Sprite& getSprite() { return Sprite; }
+	sf::Vector2f getRenderPosition() { return RenderPosition; }
 
 protected:
-	SpriteInfo& mSpriteInfo;
-	sf::Sprite mSprite;
-	sf::Vector2f mRenderPosition;
+	SpriteInfo& _SpriteInfo;
+	sf::Sprite Sprite;
+	sf::Vector2f RenderPosition;
 
-	int mCurrentFrame;
-	sf::Clock mAnimClock;
-	float mFrameDelay;
+	int CurrentFrame;
+	sf::Clock Clock;
+	float FrameDelay;
 	bool mLoopAnim;
 	int mStartFrame;
 	int mEndFrame;

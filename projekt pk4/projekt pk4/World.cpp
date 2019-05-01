@@ -2,12 +2,14 @@
 #include "World.h"
 #include <fstream>
 #include "Assets.h"
+#define xGravity 0.f
+#define yGravity 0.1f
 
 World::World(std::string path)
 {
 	mPlayer = std::make_shared<Player>(Assets::sprites["player"], sf::Vector2f());
 	mCollideables.push_back(mPlayer);
-
+	Gravity = sf::Vector2f(xGravity, yGravity);
 	loadWorld(path);
 }
 
@@ -80,7 +82,8 @@ void World::resolveCollision(std::weak_ptr<ICollideable> a, std::weak_ptr<IColli
 			a.lock()->setPhysicsPosition(sf::Vector2f(a.lock()->getPhysicsPosition().x + overlapX, a.lock()->getPhysicsPosition().y));
 		}
 	};
-
+	if (a.lock()->ContactBegin(b, fromLeft, fromTop) && b.lock()->ContactBegin(a, fromLeft, fromTop))
+	{
 		if (std::abs(minOverlapX) > std::abs(minOverlapY)) // y overlap
 		{
 			y_collision(minOverlapY);
@@ -89,16 +92,23 @@ void World::resolveCollision(std::weak_ptr<ICollideable> a, std::weak_ptr<IColli
 		{
 			x_collision(minOverlapX);
 		}
-
+	}
+		a.lock()->ContactEnd(b);
+		b.lock()->ContactEnd(a);
 }
 
 
 void World::update()
 {
 	mPlayer->update();
+	mPlayer->setVelocity(mPlayer->getVelocity()+Gravity*0.0166f);
 
-	for (auto& obj : mWorldObjects)
+	for (auto& obj : mWorldObjects) {
 		obj->update();
+		if (!obj->isStatic()) {
+			obj->setVelocity(obj->getVelocity() + Gravity * 0.0166f);
+		}
+	}
 
 	// check collisions
 	for (std::size_t x = 0; x < mCollideables.size(); x++)
